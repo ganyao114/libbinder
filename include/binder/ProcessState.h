@@ -21,8 +21,7 @@
 #include <utils/KeyedVector.h>
 #include <utils/String8.h>
 #include <utils/String16.h>
-
-#include <utils/threads.h>
+#include <utils/Thread.h>
 
 #include <pthread.h>
 
@@ -44,18 +43,18 @@ public:
 
             void                setContextObject(const sp<IBinder>& object);
             sp<IBinder>         getContextObject(const sp<IBinder>& caller);
-        
+
             void                setContextObject(const sp<IBinder>& object,
                                                  const String16& name);
             sp<IBinder>         getContextObject(const String16& name,
                                                  const sp<IBinder>& caller);
 
             void                startThreadPool();
-                        
+
     typedef bool (*context_check_func)(const String16& name,
                                        const sp<IBinder>& caller,
                                        void* userData);
-        
+
             bool                isContextManager(void) const;
             bool                becomeContextManager(
                                     context_check_func checkFunc,
@@ -66,7 +65,7 @@ public:
             void                expungeHandle(int32_t handle, IBinder* binder);
 
             void                spawnPooledThread(bool isMain);
-            
+
             status_t            setThreadPoolMaxThreadCount(size_t maxThreads);
             void                giveThreadPoolName();
 
@@ -76,7 +75,7 @@ public:
 
 private:
     friend class IPCThreadState;
-    
+
                                 ProcessState(const char* driver);
                                 ~ProcessState();
 
@@ -121,7 +120,7 @@ private:
             bool                mThreadPoolStarted;
     volatile int32_t            mThreadPoolSeq;
 };
-    
+
 }; // namespace android
 
 // ---------------------------------------------------------------------------

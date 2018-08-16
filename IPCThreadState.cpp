@@ -25,7 +25,7 @@
 #include <cutils/sched_policy.h>
 #include <utils/Log.h>
 #include <utils/SystemClock.h>
-#include <utils/threads.h>
+//#include <utils/threads.h>
 
 #include <private/binder/binder_module.h>
 #include <private/binder/Static.h>
@@ -44,11 +44,11 @@
 
 #define IF_LOG_TRANSACTIONS() if (false)
 #define IF_LOG_COMMANDS() if (false)
-#define LOG_REMOTEREFS(...) 
+#define LOG_REMOTEREFS(...)
 #define IF_LOG_REMOTEREFS() if (false)
 
-#define LOG_THREADPOOL(...) 
-#define LOG_ONEWAY(...) 
+#define LOG_THREADPOOL(...)
+#define LOG_ONEWAY(...)
 
 #else
 
